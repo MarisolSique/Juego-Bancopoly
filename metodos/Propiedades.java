@@ -11,20 +11,29 @@ public class Propiedades {
  * INICIALIZACIÓN
  * 
  */
-    public Propiedades() {
-    } 
+
  /*
  * 
  * DEFINIR VALORES
  * 
  */
-
+     //Agregar una propiedad nueva a la lista
+         public void setNuevaPropiedad(Propiedad propiedad) {
+             listaPropiedades.add(propiedad);
+         }
 /*
  * 
  * OBTENER VALORES
  * 
  */
-
+     //Devolver el listado de las propiedades en la lista
+         public List<Propiedad> getPropiedades() {
+             return this.listaPropiedades;
+         }
+    //Devolver el listado de las propiedades en la lista con dueño específico
+        public List<Propiedad> getPropsPorPropietario(String id_propietario) {
+            return null;
+        }
 /*
  * 
  * GENERALES

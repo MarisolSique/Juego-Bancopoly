@@ -5,9 +5,10 @@ import java.util.List;
 
 public class Banco {
     //Campos por defecto
-        private Integer saldo_sat;
-        private Integer saldo_banco;
-        private Integer cuota_carcel;
+        private Float saldo_sat;
+        private Float saldo_banco;
+        private Float cuota_carcel;
+        private Propiedades listaPropiedades = new Propiedades();
 /*
  * 
  * INICIALIZACIÓN
@@ -15,9 +16,9 @@ public class Banco {
  */
     //Datos por defecto del banco y juego inicial
         public Banco(){
-            this.saldo_sat = 0;
-            this.saldo_banco = 0;
-            this.cuota_carcel = 100;
+            this.saldo_sat = 0.0f;
+            this.saldo_banco = 0.0f;
+            this.cuota_carcel = 100f;
         }
  /*
  * 
@@ -25,18 +26,34 @@ public class Banco {
  * 
  */
      //Pagar porcentaje de impuestos (10%) del jugador, al banco
-         public Boolean pagarImpuestos(List propiedades) {
-             return Boolean.TRUE;
+         public void pagarImpuestos(Jugador jugador) {
+             Float pago = 0f;
+            //Obtener porcentaje a pagar de las propiedades del usuario
+                 List<Propiedad> props = listaPropiedades.getPropsPorPropietario(jugador.getID());
+                 for(Propiedad p: props){
+                     pago+= p.getPrecio()*0.1f;
+                 }
+            //Pagar cuota a SAT
+                 this.pagarSAT(pago);
+
+            //Descontar dinero a jugador luego del pago a entidades            
+                jugador.reducirSaldo(pago);
          }
+
+        public void pagarImpuestos(Float pago,Jugador jugador) {
+           //Pagar cuota a SAT
+               this.pagarSAT(pago);
+           //Descontar dinero a jugador luego del pago a entidades            
+               jugador.reducirSaldo(pago);
+        }
+
      //Pagar al fondo de la SAT una cantidad, por impuestos, multa o peaje
-         public void pagarSAT(Integer pago) {
+         public void pagarSAT(Float pago) {
              this.saldo_sat+=pago;
-             //return Boolean.TRUE;
          }
      //Pagar al fondo del Banco, por compra de propiedad, cárcel o peaje
          public void pagarBanco(Integer pago) {
              this.saldo_banco+=pago;
-             //return Boolean.TRUE;
          }
 /*
  * 
@@ -44,11 +61,11 @@ public class Banco {
  * 
  */
     //Obtener saldo actual del banco
-        public Integer getSaldoBanco() {
+        public Float getSaldoBanco() {
             return this.saldo_banco;
         }
     //Obtener saldo actual de la SAT
-        public Integer getSaldoSat() {
+        public Float getSaldoSat() {
             return this.saldo_sat;
         }
 /*
@@ -57,11 +74,20 @@ public class Banco {
  * 
  */
     //Cobrar al Banco por concepto de premio por vuelta
-        public Boolean cobrarBanco(Integer pago) {
-            return Boolean.TRUE;
+        public void cobrarBanco(Float pago, Jugador jugador) {
+            this.saldo_banco-=pago;
+            jugador.aumentarSaldo(pago);
         }
     //Pagar al Banco y descontar del jugador actual la cuota establecida por cárcel
-        public Boolean pagoPorCarcel(String id_jugador) {
-            return Boolean.TRUE;
+        public void pagoPorCarcel(Jugador jugador) {
+            this.saldo_banco+=cuota_carcel;
+            jugador.reducirSaldo(cuota_carcel);
+        }
+    //Devolver al banco las propiedades del jugador retirado
+        public void recuperarPropiedades(String id_propietario) {
+            List<Propiedad> recuperar = listaPropiedades.getPropsPorPropietario(id_propietario);
+            for(Integer i = 0; i < recuperar.size(); i++){
+                listaPropiedades.buscar(recuperar.get(i).getID()).setPropietario("");
+            }
         }
 }

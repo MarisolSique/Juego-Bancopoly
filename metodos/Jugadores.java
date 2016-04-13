@@ -65,13 +65,30 @@ public class Jugadores {
             this.jugador_actual = id;
         }
     //Definir quién es el siguiente jugador
-        public void setSiguienteTurno() {
+        public void setSiguienteTurno(String id) {
+            this.jugador_siguiente = id;
+        }
+    //Obtener el siguiente jugador
+        public String getSiguienteTurno() {
+            return this.jugador_siguiente;
         }
     //Ordenar turno de jugadores ingresados
         public void ordenarJugadores() {
-        }
-    //Obtener el siguiente jugador
-        public void getSiguienteTurno() {
+            Integer p, j;
+            Integer tamanoLista = this.getCantUsuarios();
+            for (p = 1; p < tamanoLista; p++){
+              Jugador jugadorAux = listaJugadores.get(p);
+              j = p - 1;
+              while ((j >= 0) && (jugadorAux.getTurno() < listaJugadores.get(j).getTurno())){
+                             listaJugadores.set(j+1,listaJugadores.get(j));
+                             j--;
+              }
+              listaJugadores.set(j+1,jugadorAux);
+            }
+            //Después de ordenados, reestablecer turnos: 1,2,3
+            for (p = 0; p < tamanoLista; p++){
+                listaJugadores.get(p).setTurno(p+1);
+            }
         }
 /*
  * 
@@ -105,13 +122,9 @@ public class Jugadores {
                 Jugador jugador = buscar(id);
             //Devolver dinero
                 jugador.getSaldo();
-            //Devolver propiedades
                 return null;
         }
-        //Devolver al banco las propiedades del jugador retirado
-            public Boolean devolverPropiedades(Banco banco, List propiedades) {
-                return Boolean.TRUE;
-            }
+
         //Devolver al banco el dinero del jugador retirado
             public Boolean devolverDinero(Banco banco, Integer saldo) {
                 return Boolean.TRUE;

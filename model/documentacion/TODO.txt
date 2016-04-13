@@ -1,3 +1,8 @@
 JUGADORES
     - Qué hacer si presionan CANCELAR en el ingreso del nombre del jugador
     - Distribucion de los turnos
+PAGOS
+    - Asegurarse que el jugador tiene saldo antes de hacer
+        * Compras
+        * Pago de impuestos
+        * Cárcel

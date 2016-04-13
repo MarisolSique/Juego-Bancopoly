@@ -69,6 +69,10 @@ public class Propiedad {
  * 
  */
     //Obtener todos los datos de la propiedad
+        public String getID() {
+            return null;
+        }
+    //Obtener todos los datos de la propiedad
         public Propiedad getDatos() {
             return null;
         }
@@ -77,8 +81,8 @@ public class Propiedad {
             return "";
         }
     //Obtener precio de venta
-        public String getPrecio() {
-            return "";
+        public Integer getPrecio() {
+            return 0;
         }
     //Obtener ruta de la imagen de la ficha técnica secundaria
         public String getFicha() {
