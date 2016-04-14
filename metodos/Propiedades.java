@@ -6,6 +6,7 @@ import java.util.List;
 public class Propiedades {
     //Campos por defecto
         private List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
+        
 /*
  * 
  * INICIALIZACIÓN
@@ -32,15 +33,36 @@ public class Propiedades {
          }
     //Devolver el listado de las propiedades en la lista con dueño específico
         public List<Propiedad> getPropsPorPropietario(String id_propietario) {
-            return null;
+            //Definir una lista temporal
+            List<Propiedad> listaTemporal = new ArrayList<Propiedad>();
+            //Obtener la lista de propiedades  y Recorrer la lista
+            for(int i=0; i<this.listaPropiedades.size();i++){
+                //Comparar el propietario de la propiedad con el id que me est´+an mandadndop
+                //Obtener el elemento de la lista
+                //Si el propietario es igual,
+                Propiedad propiedad_actual = listaPropiedades.get(i);
+                    if( propiedad_actual.getID().equals(id_propietario) ){
+                        // guardarlo en la lista temporal
+                        listaTemporal.add(propiedad_actual);
+                    }
+                
+            }
+            //Devolver la lista temporal
+            return listaTemporal;
         }
 /*
  * 
  * GENERALES
  * 
  */
-    //Buscar una propiedad específica en la lista
-        public Propiedad buscar(String id) {
+    //Buscar una propiedad específica en la lista y devolverla
+        public Propiedad buscar(String id){
+            for(int i=0; i<this.listaPropiedades.size();i++){
+                if(listaPropiedades.get(i).getID().equals(id))
+                {
+                    return listaPropiedades.get(i);
+                }
+            }   
             return null;
         }
     //Eliminar una propiedad de la lista

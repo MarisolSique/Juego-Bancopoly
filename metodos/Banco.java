@@ -9,6 +9,7 @@ public class Banco {
         private Float saldo_banco;
         private Float cuota_carcel;
         private Propiedades listaPropiedades = new Propiedades();
+        
 /*
  * 
  * INICIALIZACIÓN
@@ -87,7 +88,7 @@ public class Banco {
         public void recuperarPropiedades(String id_propietario) {
             List<Propiedad> recuperar = listaPropiedades.getPropsPorPropietario(id_propietario);
             for(Integer i = 0; i < recuperar.size(); i++){
-                listaPropiedades.buscar(recuperar.get(i).getID()).setPropietario("");
+              listaPropiedades.buscar( recuperar.get(i).getID() ).setPropietario("");
             }
         }
 }

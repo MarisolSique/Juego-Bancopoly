@@ -100,7 +100,7 @@ public class Jugadores {
             return listaJugadores.size();
         }
     //Obtener lista de jugadores
-        public List getJugadores() {
+        public List<Jugador> getJugadores() {
             return listaJugadores;
         }
     //Obtener el jugador de turno

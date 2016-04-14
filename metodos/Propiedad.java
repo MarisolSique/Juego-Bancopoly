@@ -68,9 +68,9 @@ public class Propiedad {
  * OBTENER VALORES
  * 
  */
-    //Obtener todos los datos de la propiedad
-        public String getID() {
-            return null;
+    //Obtener el ID de la propiedad
+        public String getID(){
+            return this.id;
         }
     //Obtener todos los datos de la propiedad
         public Propiedad getDatos() {
@@ -78,15 +78,15 @@ public class Propiedad {
         }
     //Obtener el propietario actual
         public String getPropietario() {
-            return "";
+            return this.propietario;
         }
     //Obtener precio de venta
         public Integer getPrecio() {
-            return 0;
+            return this.precio;
         }
     //Obtener ruta de la imagen de la ficha técnica secundaria
         public String getFicha() {
-            return "";
+            return this.ficha_tecnica;
         }
 /*
  * 

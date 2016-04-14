@@ -10,6 +10,7 @@ public class Juego extends javax.swing.JFrame {
 
     public Juego() {
         initComponents();
+        inicializarJuego();
     }
 
     private void inicializarJuego(){
@@ -18,8 +19,8 @@ public class Juego extends javax.swing.JFrame {
         //Inicializar Jugadores
             Jugadores jugadores = new Jugadores();
         //Inicializar Propiedades
-    /*      jugadores.solicitarJugadores();
-        List lista = jugadores.getJugadores();   */     
+          jugadores.solicitarJugadores();
+    /*    List lista = jugadores.getJugadores();   */   
     }
 
 
@@ -53,7 +54,7 @@ public class Juego extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(6);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\26350\\Desktop\\tabler8.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tablero922.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setFont(new java.awt.Font("Lucida Calligraphy", 1, 18)); // NOI18N
@@ -241,7 +242,7 @@ public class Juego extends javax.swing.JFrame {
                         .addGap(196, 196, 196)
                         .addComponent(jButton1))
                     .addComponent(jLabel1))
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
