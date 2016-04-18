@@ -101,6 +101,11 @@ public class Juego extends javax.swing.JFrame {
         jLabel9.setText("Saldo Actual:");
 
         jButton2.setText("Cupones");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Juego");
 
@@ -255,7 +260,7 @@ public class Juego extends javax.swing.JFrame {
                                 .addGap(196, 196, 196)
                                 .addComponent(jButton1))
                             .addComponent(jLabel1))))
-                .addGap(0, 64, Short.MAX_VALUE))
+                .addGap(0, 52, Short.MAX_VALUE))
         );
 
         pack();
@@ -393,6 +398,10 @@ public class Juego extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null,msj,"Juego", JOptionPane.PLAIN_MESSAGE); //Tipo de mensaje
 
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
