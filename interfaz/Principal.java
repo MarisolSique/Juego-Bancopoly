@@ -8,6 +8,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setTitle("Bienvenido a Bancopoly");
+        setLocationRelativeTo(null);
+         
     }
 
     @SuppressWarnings("unchecked")
