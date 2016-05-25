@@ -18,7 +18,7 @@ public class Cupon extends javax.swing.JDialog {
         
         Random random = new Random();
         int numeroCupon = (int)(random.nextInt(4)+1);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen"+numeroCupon+".jpg")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CuponT"+numeroCupon+".jpg")));
     }
 
     /** This method is called from within the constructor to
