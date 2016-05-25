@@ -13,6 +13,9 @@ public class Cupon extends javax.swing.JDialog {
     public Cupon(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
+
+        
         Random random = new Random();
         int numeroCupon = (int)(random.nextInt(4)+1);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagen"+numeroCupon+".jpg")));

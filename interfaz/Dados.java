@@ -1,6 +1,7 @@
 
 package interfaz;
 
+
 /**
  *
  * @author Edwin Rodriguez
@@ -14,6 +15,9 @@ public class Dados extends javax.swing.JDialog {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tirando dados.gif")));
         String dadoUno = String.valueOf(tirarDado(6));
         jTextField1.setText(dadoUno);
+        
+        setLocationRelativeTo(null);
+
     }
 
     public static int tirarDado(int rango) {
